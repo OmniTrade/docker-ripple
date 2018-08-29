@@ -1,12 +1,11 @@
 #!/bin/bash
 
+ln -s /data/lib/rippled /var/lib && \
+ln -s /data/log/rippled /var/log && \
+ln -s /data/config / 
+
 rippledconfig=`/bin/cat /config/rippled.cfg 2>/dev/null | wc -l`
 validatorstxt=`/bin/cat /config/validators.txt 2>/dev/null | wc -l`
-
-mkdir -p /config \
-&& ln -s /var/lib/rippled /data/lib \
-&& ln -s /var/log/rippled /data/log \
-&& ln -s /config /data/config 
 
 if [[ "$rippledconfig" -gt "0" && "$validatorstxt" -gt "0" ]]; then
 
@@ -18,4 +17,5 @@ if [[ "$rippledconfig" -gt "0" && "$validatorstxt" -gt "0" ]]; then
 fi
 
 # Start rippled, Passthrough other arguments
-exec /opt/ripple/bin/rippled --net --conf /etc/opt/ripple/rippled.cfg "$@"
+exec sleep infinity
+#exec /opt/ripple/bin/rippled --net --conf /etc/opt/ripple/rippled.cfg "$@"

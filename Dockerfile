@@ -6,9 +6,7 @@ RUN export LANGUAGE=C.UTF-8; export LANG=C.UTF-8; export LC_ALL=C.UTF-8; export 
 
 COPY entrypoint /entrypoint.sh
 
-RUN mkdir -p /config && \
-# Add these lines above to send the files to persist. volume on /data
-    apt-get update -y && \
+RUN apt-get update -y && \
     apt-get install yum-utils alien ssh openssl nano -y && \
     cd /tmp && \
     wget https://mirrors.ripple.com/ripple-repo-el7.rpm && \
