@@ -3,7 +3,10 @@
 rippledconfig=`/bin/cat /config/rippled.cfg 2>/dev/null | wc -l`
 validatorstxt=`/bin/cat /config/validators.txt 2>/dev/null | wc -l`
 
-mkdir -p /config
+mkdir -p /config \
+&& ln -s /var/lib/rippled /data/lib \
+&& ln -s /var/log/rippled /data/log \
+&& ln -s /config /data/config 
 
 if [[ "$rippledconfig" -gt "0" && "$validatorstxt" -gt "0" ]]; then
 
