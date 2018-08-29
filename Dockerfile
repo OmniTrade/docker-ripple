@@ -19,11 +19,9 @@ RUN apt-get update -y && \
     export PATH=$PATH:/opt/ripple/bin/ && \
     chmod +x /entrypoint.sh && \
     echo '#!/bin/bash' > /usr/bin/server_info && echo '/entrypoint.sh server_info' >> /usr/bin/server_info && \
-    chmod +x /usr/bin/server_info \
+    chmod +x /usr/bin/server_info
 
-    && ln -s /opt/ripple/bin/rippled /usr/bin/rippled 
-
-    
+RUN ln -s /opt/ripple/bin/rippled /usr/bin/rippled
 
 EXPOSE 80 443 5005 6006 51235
 
