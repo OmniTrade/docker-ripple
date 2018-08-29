@@ -7,7 +7,7 @@ RUN export LANGUAGE=C.UTF-8; export LANG=C.UTF-8; export LC_ALL=C.UTF-8; export 
 COPY entrypoint /entrypoint.sh
 
 RUN mkdir -p /config && mkdir -p /var/lib/rippled && mkdir -p /var/log/rippled \
-    && ln- s /var/lib/rippled /data/lib/rippled \
+    && ln -s /var/lib/rippled /data/lib/rippled \
     && ln -s /var/log/rippled /data/log/rippled \
     && ln -s /config /data/config \
 # Add these lines above to send the files to persist. volume on /data
