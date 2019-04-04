@@ -9,7 +9,6 @@ Other ports (443, 6006, 51235) can be mapped but should be enabled in the config
 
 This container is running on `ubuntu:latest`.
 
-
 ## How to run
 
 ### From Github
